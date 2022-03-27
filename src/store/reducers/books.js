@@ -23,6 +23,9 @@ export const booksSlice = createSlice({
     setSearchParameters: (state, { payload }) => {
       state.searchParameters = payload;
     },
+    setSearchTerm: (state, { payload }) => {
+      state.searchParameters.q = payload;
+    },
     setBooks: (state, action) => {
       state.books = action.payload;
     },
@@ -65,6 +68,7 @@ export const searchHomeBookshelves = createAsyncThunk(
 
 export const {
   setSearchParameters,
+  setSearchTerm,
   setBooks,
   setHomeBookshelves,
   setStatus,
