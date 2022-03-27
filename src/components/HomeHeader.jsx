@@ -5,14 +5,11 @@ import { useState } from 'react';
 
 export function HomeHeader() {
   const [showSearchInput, setShowSearchInput] = useState(false);
-  const toggleSearch = () => {
-    setShowSearchInput(!showSearchInput);
-  };
 
   return (
     <StyledHeader>
       <h1>Google Livros</h1>
-      <StyledIconButton type="button" onClick={toggleSearch}>
+      <StyledIconButton type="button" onClick={() => setShowSearchInput(true)}>
         <span>Buscar</span>
       </StyledIconButton>
       {showSearchInput && <HeaderSearchInput />}

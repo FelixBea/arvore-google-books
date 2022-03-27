@@ -52,6 +52,18 @@ export const booksSlice = createSlice({
       .addCase(searchHomeBookshelves.rejected, (state, { error }) => {
         state.status = 'failed';
         state.error = error.message;
+      })
+      // eslint-disable-next-line no-unused-vars
+      .addCase(searchBooks.pending, (state, action) => {
+        state.status = 'loading';
+      })
+      .addCase(searchBooks.fulfilled, (state, { payload }) => {
+        state.status = 'success';
+        state.books = payload;
+      })
+      .addCase(searchBooks.rejected, (state, { error }) => {
+        state.status = 'failed';
+        state.error = error.message;
       });
   }
 });
@@ -61,10 +73,18 @@ const fetchBookshelves = async (searchParameters) => {
   return { data: data.items, homeBookshelfKey: searchParameters.q };
 };
 
+const fetchBooks = async (_search, { getState }) => {
+  console.log('This is the state: ', getState());
+  const { items } = await api.volumes.get(getState().books.searchParameters);
+  return items;
+};
+
 export const searchHomeBookshelves = createAsyncThunk(
   'books/searchHomeBookshelves',
   fetchBookshelves
 );
+
+export const searchBooks = createAsyncThunk('books/searchBooks', fetchBooks);
 
 export const {
   setSearchParameters,
