@@ -11,7 +11,10 @@ export function BookShelf({ bookshelf }) {
       bgColor={bookshelf.backgroundColor}
       color={bookshelf.color}>
       <StyledBookshelfTitle>{bookshelf.title}</StyledBookshelfTitle>
-      <BookList books={homeBookshelves[bookshelf.homeBookshelfKey]} />
+      <BookList
+        books={homeBookshelves[bookshelf.homeBookshelfKey]}
+        listStyle="home"
+      />
     </StyledBookShelf>
   );
 }

@@ -2,14 +2,19 @@ import { StyledSearchInput } from './ui/StyledSearchInput';
 import { StyledIconButton } from './ui/StyledIconButton';
 import { useDispatch } from 'react-redux';
 import { setSearchTerm, searchBooks } from '../store/reducers/books';
+import { useNavigate } from 'react-router-dom';
 
 export function HeaderSearchInput() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const setSearch = ({ target }) => {
     dispatch(setSearchTerm(target.value));
   };
-  const search = () => {
-    dispatch(searchBooks());
+
+  const search = async () => {
+    await dispatch(searchBooks()).unwrap();
+    navigate('search-results');
   };
 
   return (

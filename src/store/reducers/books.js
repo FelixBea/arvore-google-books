@@ -74,7 +74,6 @@ const fetchBookshelves = async (searchParameters) => {
 };
 
 const fetchBooks = async (_search, { getState }) => {
-  console.log('This is the state: ', getState());
   const { items } = await api.volumes.get(getState().books.searchParameters);
   return items;
 };

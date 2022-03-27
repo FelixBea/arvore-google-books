@@ -5,7 +5,7 @@ import App from './App';
 import store from './store';
 import { Provider } from 'react-redux';
 import Home from './routes/Home';
-import ResultadoBusca from './routes/ResultadoBusca';
+import SearchResults from './routes/SearchResults';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -13,7 +13,7 @@ ReactDOM.render(
       <Routes>
         <Route path="" element={<App />}>
           <Route path="/" element={<Home />} />
-          <Route path="/resultado-busca" element={<ResultadoBusca />} />
+          <Route path="/search-results" element={<SearchResults />} />
         </Route>
       </Routes>
     </BrowserRouter>
