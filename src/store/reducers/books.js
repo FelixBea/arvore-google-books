@@ -44,7 +44,7 @@ export const booksSlice = createSlice({
       })
       .addCase(searchHomeBookshelves.fulfilled, (state, { payload }) => {
         state.status = 'success';
-        state.homeBookshelves[state.searchParameters.q] = payload.items;
+        state.homeBookshelves[payload.homeBookshelfKey] = payload.data;
       })
       .addCase(searchHomeBookshelves.rejected, (state, { error }) => {
         state.status = 'failed';
@@ -53,17 +53,22 @@ export const booksSlice = createSlice({
   }
 });
 
-const fetchBooks = async (searchParameters) => {
+const fetchBookshelves = async (searchParameters) => {
   const data = await api.volumes.get(searchParameters);
-  return data;
+  return { data: data.items, homeBookshelfKey: searchParameters.q };
 };
 
 export const searchHomeBookshelves = createAsyncThunk(
   'books/searchHomeBookshelves',
-  fetchBooks
+  fetchBookshelves
 );
 
-export const { setBooks, setHomeBookshelves, setStatus, setError } =
-  booksSlice.actions;
+export const {
+  setSearchParameters,
+  setBooks,
+  setHomeBookshelves,
+  setStatus,
+  setError
+} = booksSlice.actions;
 
 export default booksSlice.reducer;
