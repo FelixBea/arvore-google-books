@@ -1,12 +1,14 @@
-import { StyledBookItem } from './ui/StyledBookShelf';
+import {
+  StyledBookItem,
+  StyledBookThumbnailImg,
+  StyledBookTitle
+} from './ui/StyledBookShelf';
 
 export function BookItem(props) {
   return (
     <StyledBookItem>
-      <figure>
-        <img src={props.thumbnail} alt={props.altText} />
-      </figure>
-      <p>{props.title}</p>
+      <StyledBookThumbnailImg src={props.thumbnail} alt={props.altText} />
+      <StyledBookTitle>{props.title}</StyledBookTitle>
     </StyledBookItem>
   );
 }

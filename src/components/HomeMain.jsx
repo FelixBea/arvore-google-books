@@ -35,11 +35,7 @@ export function HomeMain() {
   return (
     <main>
       {bookshelves.map((bookshelf, index) => (
-        <BookShelf
-          title={bookshelf.title}
-          homeBookshelfKey={bookshelf.homeBookshelfKey}
-          key={index}
-        />
+        <BookShelf bookshelf={bookshelf} key={index} />
       ))}
     </main>
   );
