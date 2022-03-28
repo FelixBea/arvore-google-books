@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { StyledFilterWrapper } from './ui/StyledFilterForm';
+import { StyledButton } from './ui/StyledButton';
 
 export function SearchResultsFilter({ initialList, closeForm }) {
   const [compare, setCompare] = useState(null);
@@ -54,7 +55,7 @@ export function SearchResultsFilter({ initialList, closeForm }) {
 
   return (
     <StyledFilterWrapper>
-      <div>
+      <div className="buttonArea">
         <h2>Filtrar</h2>
         <button onClick={close}>
           <span className="fa-solid fa-times fa-lg"></span>
@@ -150,7 +151,9 @@ export function SearchResultsFilter({ initialList, closeForm }) {
             PDF
           </label>
         </fieldset>
-        <button type="submit">Filtrar resultados</button>
+        <StyledButton type="submit" className="primary">
+          Filtrar agora
+        </StyledButton>
       </form>
     </StyledFilterWrapper>
   );

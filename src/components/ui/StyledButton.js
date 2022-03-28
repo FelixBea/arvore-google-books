@@ -6,6 +6,7 @@ export const StyledButton = styled.button`
   border: none;
   border-radius: 16px;
   padding: 8px 16px;
+  margin-top: 12px;
   text-align: center;
   &.primary {
     background-color: #56c8ff;
