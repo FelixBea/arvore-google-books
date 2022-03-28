@@ -6,7 +6,7 @@ export const StyledHeader = styled.header`
   position: relative;
   background-color: #effaff;
   display: flex;
-  justify-content: space-between;
+  justify-content: ${(props) => props.justifyContent || 'space-between'};
   align-items: center;
   padding: 0 5%;
 `;

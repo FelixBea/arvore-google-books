@@ -10,7 +10,7 @@ export function HomeHeader() {
     <StyledHeader>
       <h1>Google Livros</h1>
       <StyledIconButton type="button" onClick={() => setShowSearchInput(true)}>
-        <span>Buscar</span>
+        <span className="fa-solid fa-magnifying-glass fa-lg"></span>
       </StyledIconButton>
       {showSearchInput && <HeaderSearchInput />}
     </StyledHeader>

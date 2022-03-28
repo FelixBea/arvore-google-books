@@ -25,7 +25,7 @@ export function HeaderSearchInput() {
         onInput={setSearch}
       />
       <StyledIconButton type="button" onClick={search}>
-        <span>Buscar</span>
+        <span className="fa-solid fa-magnifying-glass fa-lg"></span>
       </StyledIconButton>
     </>
   );
